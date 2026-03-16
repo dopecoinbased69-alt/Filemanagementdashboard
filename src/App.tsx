@@ -310,13 +310,13 @@ export default function TicTacToe() {
   const status = winner ? 'Winner: ' + winner : 'Next player: ' + (xIsNext ? 'X' : 'O');
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 bg-gray-900 text-white min-h-[300px] rounded-lg">
+    <div className="flex flex-col items-center justify-center p-4 bg-black text-white min-h-[300px] rounded-lg border border-slate-800">
       <div className="mb-4 text-xl font-bold">{status}</div>
       <div className="grid grid-cols-3 gap-2">
         {board.map((square, i) => (
           <button
             key={i}
-            className="w-16 h-16 bg-gray-700 hover:bg-gray-600 text-2xl font-bold rounded flex items-center justify-center transition-colors"
+            className="w-16 h-16 bg-slate-800 hover:bg-slate-700 text-2xl font-bold rounded flex items-center justify-center transition-colors"
             onClick={() => handleClick(i)}
           >
             {square}
@@ -369,7 +369,7 @@ export default function TodoList() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-slate-800 rounded-lg shadow-lg text-slate-100">
+    <div className="max-w-md mx-auto p-6 bg-black rounded-lg shadow-lg text-slate-100 border border-slate-800">
       <h2 className="text-2xl font-bold mb-4 text-emerald-400">Task Manager</h2>
       <form onSubmit={addTodo} className="flex gap-2 mb-6">
         <input
@@ -377,7 +377,7 @@ export default function TodoList() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Add a new task..."
-          className="flex-1 px-4 py-2 bg-slate-900 border border-slate-700 rounded focus:outline-none focus:border-emerald-500"
+          className="flex-1 px-4 py-2 bg-black border border-slate-700 rounded focus:outline-none focus:border-emerald-500"
         />
         <button type="submit" className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 rounded font-medium">Add</button>
       </form>
@@ -625,7 +625,7 @@ export default function MergedApp() {
   // --- RENDER ---
   return (
     <div 
-        className="flex h-screen w-full bg-slate-950 text-slate-200 overflow-hidden font-sans"
+        className="flex h-screen w-full bg-black text-slate-200 overflow-hidden font-sans"
         onDragEnter={handleDragEnter} 
         onDragLeave={handleDragLeave} 
         onDragOver={handleDragOver} 
@@ -648,7 +648,7 @@ export default function MergedApp() {
             <motion.div 
                 initial={{ scale: 0.9, y: 20 }}
                 animate={{ scale: 1, y: 0 }}
-                className="bg-slate-900 p-8 rounded-2xl shadow-2xl flex flex-col items-center"
+                className="bg-black p-8 rounded-2xl shadow-2xl flex flex-col items-center border border-slate-800"
             >
                 <Upload size={64} className="text-emerald-400 mb-4 animate-bounce" />
                 <h2 className="text-3xl font-bold text-white font-[Orbitron]">Drop to Analyze</h2>
@@ -665,9 +665,9 @@ export default function MergedApp() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 z-[60] bg-slate-950/80 backdrop-blur flex items-center justify-center"
+            className="absolute inset-0 z-[60] bg-black/80 backdrop-blur flex items-center justify-center"
         >
-            <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 shadow-2xl flex flex-col items-center max-w-sm text-center">
+            <div className="bg-black p-8 rounded-xl border border-slate-800 shadow-2xl flex flex-col items-center max-w-sm text-center">
                 <Loader2 size={48} className="text-emerald-500 animate-spin mb-4" />
                 <h3 className="text-xl font-bold text-white mb-2 font-[Orbitron]">{statusMessage}</h3>
                 <p className="text-slate-400 text-sm">Our AI is processing your code structure...</p>
@@ -680,13 +680,13 @@ export default function MergedApp() {
         <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="w-full h-full flex flex-col relative bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950"
+            className="w-full h-full flex flex-col relative bg-black"
         >
             <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay bg-[#00000000]"></div>
             
-            <header className="p-8 z-10 flex justify-between items-center">
+            <header className="p-8 z-10 flex justify-between items-center bg-[#000000]">
                 <div className="flex items-center gap-3">
-                    <div className="size-10 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/20 bg-[#0d3024] overflow-hidden">
+                    <div className="size-10 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/20 overflow-hidden bg-[#000000]">
                         <img src={image_e445675206871cec79cef549e2b20441d5384b86} className="w-6 h-6 object-contain" alt="Logo" />
                     </div>
                     <span className="font-bold text-xl tracking-tight text-white font-[Orbitron]">CodeCanvas <span className="text-emerald-500">AI</span></span>
@@ -760,7 +760,7 @@ export default function MergedApp() {
                 />
             </main>
             
-            <footer className="p-8 z-10 text-center text-sm text-[#0124a1]">
+            <footer className="p-8 z-10 text-center text-sm text-[#1744d8] font-[Orbitron]">
                 &copy; {new Date().getFullYear()} CodeCanvas AI. Secure & Local.
             </footer>
         </motion.div>
@@ -768,7 +768,7 @@ export default function MergedApp() {
         /* DASHBOARD VIEW */
         <div className="flex w-full h-full">
             {/* SIDEBAR */}
-            <aside className={`${isSidebarOpen ? 'w-64' : 'w-0'} transition-all duration-300 bg-slate-900 border-r border-slate-800 flex flex-col overflow-hidden shrink-0`}>
+            <aside className={`${isSidebarOpen ? 'w-64' : 'w-0'} transition-all duration-300 bg-black border-r border-slate-800 flex flex-col overflow-hidden shrink-0`}>
                 <div className="p-4 flex items-center gap-3 border-b border-slate-800 h-16 shrink-0">
                     <div className="size-8 rounded flex items-center justify-center shadow-lg shadow-emerald-500/20 bg-[#0d3024]">
                         <img src={image_e445675206871cec79cef549e2b20441d5384b86} className="w-5 h-5 object-contain" alt="Logo" />
@@ -825,7 +825,7 @@ export default function MergedApp() {
                     ))}
                 </div>
 
-                <div className="p-4 border-t border-slate-800 bg-slate-900/50">
+                <div className="p-4 border-t border-slate-800 bg-black">
                      <button onClick={() => setCurrentView('home')} className="flex items-center gap-2 text-xs text-slate-500 hover:text-slate-300 transition-colors">
                         <Home size={12} />
                         Back to Home
@@ -834,9 +834,9 @@ export default function MergedApp() {
             </aside>
 
             {/* MAIN CONTENT */}
-            <main className="flex-1 flex flex-col min-w-0 bg-slate-950 relative">
+            <main className="flex-1 flex flex-col min-w-0 bg-black relative">
                 {/* TOP BAR */}
-                <header className="h-16 border-b border-slate-800 flex items-center justify-between px-4 bg-slate-950 shrink-0 z-20">
+                <header className="h-16 border-b border-slate-800 flex items-center justify-between px-4 bg-black shrink-0 z-20">
                     <div className="flex items-center gap-4 flex-1">
                         <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="p-2 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors">
                             <Menu size={20} />
@@ -875,7 +875,7 @@ export default function MergedApp() {
 
                         <div className="h-6 w-px bg-slate-800 mx-2"></div>
 
-                        <div className="flex bg-slate-900 p-1 rounded-lg border border-slate-800">
+                        <div className="flex bg-black p-1 rounded-lg border border-slate-800">
                             <button 
                                 onClick={() => setViewMode('grid')}
                                 className={`p-1.5 rounded ${viewMode === 'grid' ? 'bg-slate-800 text-white shadow-sm' : 'text-slate-500 hover:text-slate-300'}`}
@@ -927,7 +927,7 @@ export default function MergedApp() {
                                         initial={{ opacity: 0, scale: 0.9 }}
                                         animate={{ opacity: 1, scale: 1 }}
                                         onClick={() => handleFileClick(file)}
-                                        className={`group relative bg-slate-900 border ${selectedFile?.id === file.id || selectedIds.has(file.id) ? 'border-emerald-500 ring-1 ring-emerald-500/50' : 'border-slate-800 hover:border-slate-700'} rounded-xl overflow-hidden transition-all hover:shadow-xl hover:shadow-black/20 cursor-pointer flex flex-col h-48`}
+                                        className={`group relative bg-black border ${selectedFile?.id === file.id || selectedIds.has(file.id) ? 'border-emerald-500 ring-1 ring-emerald-500/50' : 'border-slate-800 hover:border-slate-700'} rounded-xl overflow-hidden transition-all hover:shadow-xl hover:shadow-black/20 cursor-pointer flex flex-col h-48`}
                                     >
                                         <div className="absolute top-3 left-3 z-10 flex gap-2">
                                             {isSelectionMode && (
@@ -947,8 +947,8 @@ export default function MergedApp() {
                                         </div>
 
                                         {/* PREVIEW THUMBNAIL AREA */}
-                                        <div className="flex-1 bg-slate-950 flex items-center justify-center relative overflow-hidden">
-                                            <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-slate-900 to-slate-800"></div>
+                                        <div className="flex-1 bg-black flex items-center justify-center relative overflow-hidden">
+                                            <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-black to-slate-800"></div>
                                             {file.type === 'react' ? (
                                                 <Code size={48} className="text-slate-700 group-hover:text-emerald-500/50 transition-colors relative z-0" />
                                             ) : (
@@ -966,7 +966,7 @@ export default function MergedApp() {
                                             </div>
                                         </div>
 
-                                        <div className="p-4 bg-slate-900 border-t border-slate-800">
+                                        <div className="p-4 bg-black border-t border-slate-800">
                                             <h4 className="font-bold text-slate-200 truncate pr-4 text-sm font-[Orbitron]">{file.name}</h4>
                                             <div className="flex items-center justify-between mt-1">
                                                 <span className="text-xs text-slate-500">{file.subCategory}</span>
@@ -977,9 +977,9 @@ export default function MergedApp() {
                                 ))}
                             </div>
                         ) : (
-                            <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+                            <div className="bg-black border border-slate-800 rounded-xl overflow-hidden">
                                 <table className="w-full text-left text-sm">
-                                    <thead className="bg-slate-950 text-slate-500 font-medium border-b border-slate-800">
+                                    <thead className="bg-black text-slate-500 font-medium border-b border-slate-800">
                                         <tr>
                                             <th className="px-4 py-3 w-10"></th>
                                             <th className="px-4 py-3">Name</th>
@@ -1039,9 +1039,9 @@ export default function MergedApp() {
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: 100, opacity: 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className={`${isPreviewExpanded ? 'w-[800px] absolute right-0 inset-y-0 z-30 shadow-2xl' : 'w-96 border-l border-slate-800'} bg-slate-950 flex flex-col transition-all duration-300 shrink-0 shadow-xl`}
+                    className={`${isPreviewExpanded ? 'w-[800px] absolute right-0 inset-y-0 z-30 shadow-2xl' : 'w-96 border-l border-slate-800'} bg-black flex flex-col transition-all duration-300 shrink-0 shadow-xl`}
                 >
-                    <div className="h-16 border-b border-slate-800 flex items-center justify-between px-4 bg-slate-900 shrink-0">
+                    <div className="h-16 border-b border-slate-800 flex items-center justify-between px-4 bg-black shrink-0">
                          <div className="flex items-center gap-2 overflow-hidden">
                              <span className="font-bold text-slate-200 truncate max-w-[200px] font-[Orbitron]">{selectedFile.name}</span>
                              {selectedFile.isRenamed && (
@@ -1064,10 +1064,10 @@ export default function MergedApp() {
                          </div>
                     </div>
 
-                    <div className="flex-1 overflow-y-auto bg-slate-950 relative">
+                    <div className="flex-1 overflow-y-auto bg-black relative">
                         {/* IFRAME PREVIEW */}
                         <div className="w-full h-full flex flex-col">
-                            <div className="bg-slate-900 border-b border-slate-800 px-4 py-2 flex items-center justify-between">
+                            <div className="bg-black border-b border-slate-800 px-4 py-2 flex items-center justify-between">
                                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-2">
                                     <Eye size={12} /> Live Preview
                                 </span>
@@ -1088,7 +1088,7 @@ export default function MergedApp() {
                         </div>
                     </div>
 
-                    <div className="p-6 border-t border-slate-800 bg-slate-900/50">
+                    <div className="p-6 border-t border-slate-800 bg-black">
                         <div className="flex items-center justify-between mb-4">
                             <h3 className="font-bold text-slate-200 text-sm uppercase tracking-wide font-[Orbitron]">Properties</h3>
                             <button 
@@ -1100,12 +1100,12 @@ export default function MergedApp() {
                         </div>
 
                         {isRenaming ? (
-                            <div className="mb-4 space-y-2 bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <div className="mb-4 space-y-2 bg-black p-3 rounded-lg border border-slate-700">
                                 <input 
                                     ref={fileInputRef}
                                     value={renameValue}
                                     onChange={(e) => setRenameValue(e.target.value)}
-                                    className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1 text-sm text-white focus:outline-none focus:border-emerald-500"
+                                    className="w-full bg-black border border-slate-700 rounded px-2 py-1 text-sm text-white focus:outline-none focus:border-emerald-500"
                                     autoFocus
                                 />
                                 <div className="flex gap-2 justify-end">
@@ -1118,7 +1118,7 @@ export default function MergedApp() {
                         <div className="space-y-4">
                             <div>
                                 <label className="text-xs text-slate-500 block mb-1">Description</label>
-                                <p className="text-sm text-slate-300 leading-relaxed bg-slate-900 p-3 rounded-lg border border-slate-800">
+                                <p className="text-sm text-slate-300 leading-relaxed bg-black p-3 rounded-lg border border-slate-800">
                                     {selectedFile.description || "No description available."}
                                 </p>
                             </div>
@@ -1146,7 +1146,7 @@ export default function MergedApp() {
                                 </div>
                             </div>
                             
-                            <button className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-white text-sm font-bold rounded-lg border border-slate-700 hover:border-slate-600 transition-colors flex items-center justify-center gap-2 group font-[Orbitron]">
+                            <button className="w-full py-2.5 bg-black hover:bg-slate-900 text-white text-sm font-bold rounded-lg border border-slate-700 hover:border-slate-600 transition-colors flex items-center justify-center gap-2 group font-[Orbitron]">
                                 <Download size={14} className="group-hover:translate-y-0.5 transition-transform" /> Download Source
                             </button>
                         </div>
